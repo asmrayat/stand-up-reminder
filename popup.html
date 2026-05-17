@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stand Up Reminder</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge-dot" id="status-dot"></div>
+      <div>
+        <div class="title">Stand Up Reminder</div>
+        <div class="status" id="status-text">Loading…</div>
+      </div>
+    </header>
+
+    <div class="timer-display" id="timer-display">--:--</div>
+
+    <div class="controls">
+      <button class="btn btn-primary" id="start-btn">Start</button>
+      <button class="btn btn-secondary" id="stop-btn">Stop</button>
+    </div>
+
+    <button class="btn btn-resume" id="resume-btn" hidden>Resume work</button>
+
+    <div class="log-section">
+      <div class="log-header">
+        <span class="log-title">Today</span>
+        <button class="log-reset" id="reset-log-btn" title="Reset today's log">Reset</button>
+      </div>
+      <div class="log-stats">
+        <div class="log-stat">
+          <div class="log-value" id="log-sessions">0</div>
+          <div class="log-label">Sessions</div>
+        </div>
+        <div class="log-stat">
+          <div class="log-value" id="log-standups">0</div>
+          <div class="log-label">Stand-ups</div>
+        </div>
+        <div class="log-stat">
+          <div class="log-value" id="log-extra">0s</div>
+          <div class="log-label">Extra break</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings">
+      <div class="setting">
+        <label for="session-input">Session</label>
+        <div class="input-row">
+          <input type="number" id="session-input" min="1" max="180" />
+          <span class="unit">min</span>
+        </div>
+      </div>
+      <div class="setting">
+        <label>Break</label>
+        <div class="input-row break-row">
+          <input type="number" id="break-min-input" min="0" max="60" />
+          <span class="unit">min</span>
+          <input type="number" id="break-sec-input" min="0" max="59" />
+          <span class="unit">sec</span>
+        </div>
+      </div>
+      <button class="btn btn-save" id="save-btn">Save settings</button>
+      <div class="save-hint" id="save-hint"></div>
+      <button class="btn btn-test" id="test-btn">Test break now</button>
+    </div>
+
+    <footer>v1.3.0 · click Start to begin</footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
